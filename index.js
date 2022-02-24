@@ -4,6 +4,9 @@ const http = require('http');
 const webServer = http.createServer(app);
 
 
+// import socket.io server for configer
+const {Server} = require('socket.io');
+let io =  new Server(webServer);
 
 
 
@@ -11,7 +14,10 @@ const webServer = http.createServer(app);
 
 
 
-
+// Check socket connection is connected or not
+io.on('connection', function(socket){
+    console.log('New user is connected...')
+})
 
 
 // Add index.html for root page...
