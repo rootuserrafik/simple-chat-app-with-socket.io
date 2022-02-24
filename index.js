@@ -9,7 +9,11 @@ const {Server} = require('socket.io');
 let io =  new Server(webServer);
 
 
-
+io.on('connection', function(socket){
+    socket.on ('userChat', function(userMsg){
+        console.log(userMsg);
+    })
+})
 
 
 

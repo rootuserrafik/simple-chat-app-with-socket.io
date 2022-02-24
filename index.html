@@ -33,13 +33,14 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px sold;
-  margin: 10px;
+  position: absolute;
+  bottom: 0;
 }
 .msgController input[type=text] {
   width: 100%;
 }
 .msgController input {
-  padding: 10px;
+  padding: 20px;
   border: 0;
   font-size: 18px;
 }
@@ -55,7 +56,7 @@ body {
             <ul></ul>
         </span>
         <form class="msgController">
-            <input type="text" placeholder="write your text">
+            <input type="text" placeholder="Write your text">
             <input onclick="sendMsg()" type="submit" value="send">
         </form>
     </div>
@@ -67,7 +68,8 @@ body {
         let socket = io();
         function sendMsg(){
             const userMsg = document.querySelector('.msgController input[type="text"]').value;
-            alert(userMsg);
+            socket.emit('userChat', userMsg);
+            document.querySelector('.msgController input[type="text"]').value = "";
         }
     </script>
 </body>
