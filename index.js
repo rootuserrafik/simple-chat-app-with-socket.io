@@ -10,9 +10,11 @@ let io =  new Server(webServer);
 
 
 io.on('connection', function(socket){
-    socket.on ('userChat', function(userMsg){
+    socket.on ('getUserMessage', function(userMsg){
+        io.emit ('sendUserMessage', userMsg);
         console.log(userMsg);
     })
+    
 })
 
 
