@@ -6,8 +6,9 @@ const webServer = http.createServer(app);
 
 
 
-
-
+app.get('/', function (req, res) {
+    res.sendFile(__dirname+'/index.html')
+})
 
 // added a listen port for run server address
 const port = 8080;
