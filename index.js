@@ -14,15 +14,16 @@ let io =  new Server(webServer);
 
 
 
-// Check socket connection is connected or not
-io.on('connection', function(socket){
-    console.log('New user is connected...')
-})
 
 
 // Add index.html for root page...
 app.get('/', function (req, res) {
     res.sendFile(__dirname+'/index.html')
+})
+
+// Check socket connection is connected or not
+io.on('connection', function(socket){
+    console.log('New user is connected...')
 })
 
 // added a listen port for run server address
