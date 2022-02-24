@@ -6,6 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Chat App with Socket.io</title>
     <link rel="stylesheet" href="App/inc/css/style.css">
+    <style>
+        
+* {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+body {
+  background-color: #262626;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+}
+.messagesBox {
+}
+.msgController {
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px sold;
+  margin: 10px;
+}
+.msgController input[type=text] {
+  width: 100%;
+}
+.msgController input {
+  padding: 10px;
+  border: 0;
+  font-size: 18px;
+}
+.msgController input[type=submit] {
+  cursor: pointer;
+}
+    </style>
 </head>
 <body>
     
@@ -13,9 +54,9 @@
         <span class="messagesBox">
             <ul></ul>
         </span>
-        <form action="#" class="msgController">
+        <form class="msgController">
             <input type="text" placeholder="write your text">
-            <input type="button" value="send">
+            <input onclick="sendMsg()" type="submit" value="send">
         </form>
     </div>
 
@@ -24,6 +65,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
+        function sendMsg(){
+            const userMsg = document.querySelector('.msgController input[type="text"]').value;
+            alert(userMsg);
+        }
     </script>
 </body>
 </html>
